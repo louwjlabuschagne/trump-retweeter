@@ -15,9 +15,13 @@ trump = api.get_user('realDonaldTrump')
 latest_tweet = trump.status
 latest_tweet_id = latest_tweet.id
 
+f = open('trumper.log','a+')
 try:
     api.retweet(latest_tweet_id)
-    log_print('Tweeted \n%s'%latest_tweet.text.encode('ascii', 'ignore'))
+    result = 'Tweeted \n%s'%latest_tweet.text.encode('ascii', 'ignore')
 except tweepy.error.TweepError:
-    log_print('Already Tweeted \n%s'%latest_tweet.text.encode('ascii', 'ignore'))
+    result = 'Already Tweeted \n%s'%latest_tweet.text.encode('ascii', 'ignore')
     exit()
+log_print(result)
+f.write(result)
+f.close()

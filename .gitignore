@@ -6,6 +6,8 @@ __pycache__/
 #all pickles
 *.pkl
 
+#all logs
+*.log
 venv/
 
 # C extensions

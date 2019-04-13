@@ -1,4 +1,4 @@
-sudo apt install -y python-pip
+sudo apt install -y python-pip git
 pip install tweepy
 pip freeze > requirements.txt
 virtualenv --python=/usr/bin/python2.7.13
