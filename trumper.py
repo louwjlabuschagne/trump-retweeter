@@ -12,16 +12,16 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 trump = api.get_user('realDonaldTrump')
-latest_tweet = trump.status
-latest_tweet_id = latest_tweet.id
+latest_status = trump.status
+id = latest_status.id
+tweet = latest_status.text.encode('ascii', 'ignore').decode('ascii', 'ignore')
 
-f = open('trumper.log','a+')
 try:
-    api.retweet(latest_tweet_id)
-    result = 'Tweeted \n%s'%latest_tweet.text.encode('ascii', 'ignore')
+    api.retweet(id)
+    result = 'Tweeted \n'+tweet
 except tweepy.error.TweepError:
-    result = 'Already Tweeted \n%s'%latest_tweet.text.encode('ascii', 'ignore')
-    exit()
+    result = 'Already Tweeted \n'+tweet
+
 log_print(result)
-f.write(result)
-f.close()
+with open('trumper.log','a+') as f:
+    f.write('\n\n[%s]: %s'%(strftime("%Y-%m-%d %H:%M:%S", gmtime()), result))
