@@ -24,4 +24,4 @@ except tweepy.error.TweepError:
 
 log_print(result)
 with open('trumper.log','a+') as f:
-    f.write('\n\n[%s]: %s'%(strftime("%Y-%m-%d %H:%M:%S", gmtime()), result))
+    f.write('[%s]: %s\n'%(strftime("%Y-%m-%d %H:%M:%S", gmtime()), result))
