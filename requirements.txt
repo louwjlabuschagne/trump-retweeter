@@ -20,4 +20,4 @@ requests-oauthlib==1.2.0
 SecretStorage==2.3.1
 six==1.12.0
 tweepy==3.7.0
-urllib3==1.24.1
+urllib3==1.26.5
